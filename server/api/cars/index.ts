@@ -1,3 +1,5 @@
+import CarModel from "~/server/models/Car.model"
+
 export default defineEventHandler(async (event) => {
-    return "Hello World"
+    return await CarModel.find().populate('cars')
 })
