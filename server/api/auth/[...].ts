@@ -1,5 +1,8 @@
 import { NuxtAuthHandler } from '#auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
+import UserModel from '~/server/models/User.model'
+
+import bcrypt from "bcrypt"
 
 export default NuxtAuthHandler({
     // The secret used to encrypt the JWT.
@@ -20,8 +23,24 @@ export default NuxtAuthHandler({
             // The authorize function is called when a user attempts to sign in.
             async authorize(credentials: { username: string, password: string }) {
                 // fetch user from database
+                const user = await UserModel.findOne({ username: credentials.username })
 
-                return {}
+                if (!user) {
+                    throw createError({
+                        statusCode: 401,
+                        statusMessage: 'Unauthorized'
+                    })
+                }
+
+                const isValid = await bcrypt.compare(credentials.password, user.password)
+
+                if (!isValid) {
+                    throw createError({
+                        statusCode: 401,
+                        statusMessage: 'Unauthorized'
+                    })
+                }
+                return { ...user.toObject(), password: undefined }
             }
         })
     ],
