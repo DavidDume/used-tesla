@@ -41,6 +41,10 @@
 
 <script setup lang="ts">
 
+definePageMeta({
+    middleware: "guest"
+})
+
     const form = ref({
         username: '',
         password: ''
