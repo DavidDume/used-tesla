@@ -1,21 +1,27 @@
 <template>
-    <div>
-        Bentornato {{ (data?.user as any).username }}
-    </div>
+    <MainLayout>
+        <div>
+            <h1 v-if="listings" v-for="car in listings.data">{{ car.name }}</h1>
+        </div>
+    </MainLayout>
 
-    <button @click="handleLogout">LOGOUT</button>
 </template>
 
 <script setup lang="ts">
-    definePageMeta({
+    import MainLayout from '~/layouts/MainLayout.vue';
+
+    /* definePageMeta({
         middleware: "auth"
+    }) */
+    
+    let listings = ref()
+
+    onBeforeMount(async() => {
+        listings.value = await useFetch('/api/cars/')
+        console.log(listings.value.data);
+        
     })
     
-    const {data, signOut} = useAuth()
-
-    const handleLogout = async() => {
-        await signOut()
-    }
 </script>
 
 <style scoped>
