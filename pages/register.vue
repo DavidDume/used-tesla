@@ -55,6 +55,9 @@
                 method: 'POST',
                 body: form.value
             })
+            useRouter().push({
+                name: 'login'
+            })
         } catch(e) {
             console.log(e);   
         } finally {
