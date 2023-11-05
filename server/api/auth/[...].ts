@@ -4,6 +4,11 @@ import CredentialsProvider from 'next-auth/providers/credentials'
 export default NuxtAuthHandler({
     // The secret used to encrypt the JWT.
     secret: useRuntimeConfig().AUTH_SECRET,
+
+    pages: {
+        signIn: '/login'
+    },
+
     providers: [
         // @ts-expect-error
         CredentialsProvider.default({
