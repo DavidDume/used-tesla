@@ -13,7 +13,3 @@ export default defineEventHandler(async (event) => {
     await CarModel.create(body)
     return { message: 'Car created' }
 })
-
-{
-
-}
