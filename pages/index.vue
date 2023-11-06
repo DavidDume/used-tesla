@@ -1,7 +1,8 @@
 <template>
     <MainLayout>
-        <div>
-            <h1 v-if="listings" v-for="car in listings.data">{{ car.name }}</h1>
+        <Loading v-if="isLoading" />
+        <div v-else>
+            <h1 v-for="car in listings.data">{{ car.name }}</h1>
         </div>
     </MainLayout>
 
@@ -9,17 +10,19 @@
 
 <script setup lang="ts">
     import MainLayout from '~/layouts/MainLayout.vue';
-
+    import Loading from '~/components/Loading.vue';
+    import { ICar } from '~/types'
     /* definePageMeta({
         middleware: "auth"
     }) */
     
-    let listings = ref()
+    let isLoading = ref(true)
 
+    let listings = ref()
+    
     onBeforeMount(async() => {
-        listings.value = await useFetch('/api/cars/')
-        console.log(listings.value.data);
-        
+        listings.value = await useFetch<ICar>('/api/cars/')    
+        isLoading.value = false
     })
     
 </script>
