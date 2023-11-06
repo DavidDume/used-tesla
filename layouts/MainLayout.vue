@@ -11,12 +11,12 @@
                    <RouterLink to="/" class="hover:text-emerald-500">HOME</RouterLink>
                </li>
                <li class="p-6 font-semibold tracking-widest">
-                   <RouterLink to="/login" class="hover:text-emerald-500" v-if="!data.user">Login</RouterLink>
+                   <RouterLink to="/login" class="hover:text-emerald-500" v-if="!data?.user">Login</RouterLink>
                    <a href="" v-else>Account</a>
                </li>
                <li class="p-6 font-semibold tracking-widest ">
-                   <RouterLink to="/register" class="hover:text-emerald-500" v-if="!data.user">register</RouterLink>
-                   <a @click="logout" v-else>logout</a>
+                   <RouterLink to="/register" class="hover:text-emerald-500" v-if="!data?.user">register</RouterLink>
+                   <a  class="hover:cursor-pointer" @click="handleLogout" v-else>logout</a>
                </li>
            </ul>
        </div>
@@ -37,12 +37,12 @@
                     <RouterLink to="/" class="hover:text-emerald-500">HOME</RouterLink>
             </li>
             <li class="p-4 border-t-2 border-gray-200 font-semibold tracking-widest uppercase">
-                <RouterLink to="/login" class="hover:text-emerald-500" v-if="!data.user">Login</RouterLink>
+                <RouterLink to="/login" class="hover:text-emerald-500" v-if="!data?.user">Login</RouterLink>
                 <a href="" v-else>Account</a>
             </li>
             <li class="p-4 border-t-2 border-gray-200 font-semibold tracking-widest uppercase">
-                <RouterLink to="/register" class="hover:text-emerald-500" v-if="!data.user">register</RouterLink>
-                <a @click="logout" v-else>logout</a>
+                <RouterLink to="/register" class="hover:text-emerald-500" v-if="!data?.user">register</RouterLink>
+                <a @click="handleLogout" v-else>logout</a>
             </li>
            </ul>
        </div>
