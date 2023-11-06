@@ -73,7 +73,7 @@
         console.log('Hello');
         
         await listingsStore.addCar(formData.value)
-        
+        navigateTo('/account')
     }
 </script>
 
