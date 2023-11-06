@@ -1,5 +1,6 @@
 import mongoose from 'mongoose'
 const Schema = mongoose.Schema;
+import { ICar } from '~/types'
 
 const schema: mongoose.Schema = new mongoose.Schema(
     {
@@ -43,4 +44,4 @@ const schema: mongoose.Schema = new mongoose.Schema(
     { timestamps: true }
 )
 
-export default mongoose.model("Car", schema)
+export default mongoose.model<ICar>("Car", schema)
