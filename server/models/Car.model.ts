@@ -24,7 +24,7 @@ const schema: mongoose.Schema = new mongoose.Schema(
         seller: {
             type: Schema.Types.ObjectId,
             ref: 'User',
-            required: false
+            required: true
         },
         images: [String],
         mileage: {
@@ -32,13 +32,16 @@ const schema: mongoose.Schema = new mongoose.Schema(
             unit: { type: String, required: true, default: 'KM' }
         },
         autopilot: String,
-        location: {
+        position: {
             type: String,
             required: true
         },
         price: {
             value: { type: Number, required: true },
             unit: { type: String, required: true, default: 'EUR' }
+        },
+        description: {
+            type: String
         }
     },
     { timestamps: true }

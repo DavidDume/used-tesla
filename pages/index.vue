@@ -11,6 +11,7 @@
 <script setup lang="ts">
     import MainLayout from '~/layouts/MainLayout.vue';
     import Loading from '~/components/Loading.vue';
+    //import {useListingsStore} from '~/stores/user'
     import { ICar } from '~/types'
     /* definePageMeta({
         middleware: "auth"
@@ -21,7 +22,8 @@
     let listings = ref()
     
     onBeforeMount(async() => {
-        listings.value = await useFetch<ICar>('/api/cars/')    
+        listings.value = await useFetch<ICar>('/api/cars/')  
+        
         isLoading.value = false
     })
     

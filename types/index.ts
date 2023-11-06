@@ -12,9 +12,10 @@ export interface ICar {
     model: string,
     vin: string,
     seller: IUser,
-    images: string[],
+    images?: string[],
     mileage: object,
     autopilot: string,
-    location: string,
-    price: object
+    position: string,
+    price: object,
+    description?: string
 }
