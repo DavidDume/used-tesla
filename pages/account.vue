@@ -2,6 +2,7 @@
     <MainLayout>
         <div class="text-center">
             <h1>Ben tornato {{ userStore.user.username }}</h1>
+            <RouterLink to="/add-car">Vendi la tua tesla</RouterLink>
         </div>
         
     </MainLayout>
