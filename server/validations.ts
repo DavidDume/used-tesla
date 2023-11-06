@@ -5,18 +5,22 @@ export const CarSchema = joi.object({
     year: joi.number().required(),
     model: joi.string().min(3).required(),
     vin: joi.string().min(17).max(17).required(),
-
+    seller: joi.string().pattern(/^[0-9a-fA-F]{24}$/).required().messages({
+        'string.pattern.base': `seller must be a valid MongoDB ObjectId`,
+        'any.required': `seller is a required field`
+    }),
     images: joi.array(),
     mileage: joi.object({
         value: joi.number().required(),
         unit: joi.string().required()
     }),
     autopilot: joi.string(),
-    location: joi.string().min(3).required(),
+    position: joi.string().min(3).required(),
     price: joi.object({
         value: joi.number().required(),
         unit: joi.string().required()
     }),
+    description: joi.string().max(300)
 })
 
 export const UserSchema = joi.object({
