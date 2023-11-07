@@ -16,6 +16,7 @@
                         <label for="model" class="block">Modello</label>
                         <input type="text" v-model="formData.model" id="model" name="model" class="border rounded-lg">
                     </div>
+                    <!--Need to add Images-->
                     <div class="pr-2">
                         <label for="name" class="block">Marca</label>
                         <input type="text" v-model="formData.name" id="name" name="name" class="border rounded-lg">
