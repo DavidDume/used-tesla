@@ -49,9 +49,8 @@
      
    </header>
 
-   <div>
-    <slot />
-   </div>
+   <slot />
+
 </template>
 
 <script setup lang="ts">

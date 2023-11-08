@@ -6,8 +6,21 @@
         </div>
         <div class="m-3">
             <h1>I tuoi annunci</h1>
-            <div v-if="usersListings" v-for="(listing, i) in usersListings.data" :key="i">
-                {{ listing.name }}
+            <div v-if="usersListings" class="grid grid-cols-4 gap-2"> 
+                <div  v-for="(car, i) in usersListings.data" :key="i">
+                    <RouterLink :to="`/listing/${car._id}`">
+                        <Listing :mileage="car.mileage.value"
+                        :name="car.name"
+                        :model="car.model"
+                        :location="car.location"
+                        :created="car.createdAt"
+                        :price="car.price.value"
+                        >
+                        
+                        </Listing>
+                    </RouterLink>
+                </div>
+                
             </div>
         </div>
     </MainLayout>
@@ -15,6 +28,8 @@
 
 <script setup lang="ts">
     import MainLayout from '~/layouts/MainLayout.vue';
+    import Listing from '~/components/Listing.vue';
+
     import {useUserStore} from '~/stores/user'
 
     definePageMeta({

@@ -9,7 +9,7 @@ export default defineNuxtConfig({
     'nuxt-lodash',
     '@pinia/nuxt',
     '@nuxtjs/tailwindcss',
-    '@sidebase/nuxt-auth'
+    '@sidebase/nuxt-auth',
   ],
   //register nitro for db connection
   nitro: {
