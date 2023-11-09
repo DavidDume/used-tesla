@@ -45,6 +45,7 @@
     import {useUserStore} from '~/stores/user'
 
     import {useListingsStore} from '~/stores/cars'
+    import { ICar } from '~/types';
 
     definePageMeta({
         middleware: "auth"
@@ -71,10 +72,11 @@
     })
 
     const handleFormSubmit = async () => {
-        console.log('Hello');
+  
+        const newCar = await listingsStore.addCar(formData.value) as ICar
+
         
-        await listingsStore.addCar(formData.value)
-        navigateTo('/account')
+        navigateTo(`/listing/${newCar._id}`)
     }
 </script>
 
