@@ -8,10 +8,8 @@
     import Details from '~/components/Details.vue';
     import MainLayout from '../../layouts/MainLayout.vue';
     const route = useRoute()
-    let listing = ref()
-    onBeforeMount(async () => {
-        listing.value = await $fetch(`/api/cars/${route.params.id}`)
-    })
+    let listing = ref(await $fetch(`/api/cars/${route.params.id}`) as object)
+
 </script>
 
 <style scoped>
