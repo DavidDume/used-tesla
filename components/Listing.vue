@@ -28,7 +28,7 @@
         mileage: Number,
         name: String,
         model: String,
-        location: String,
+        position: String,
         created: String,
         price: Number
     })
@@ -42,7 +42,7 @@
             title: 'modello'
         },
         {
-            value: props.location,
+            value: props.position,
             title: 'posizione'
         },
         {

@@ -6,13 +6,13 @@
         </div>
         <div class="m-3">
             <h1>I tuoi annunci</h1>
-            <div v-if="usersListings" class="grid grid-cols-4 gap-2"> 
+            <div v-if="usersListings" class="grid lg:grid-cols-4 gap-2"> 
                 <div  v-for="(car, i) in usersListings.data" :key="i">
                     <RouterLink :to="`/listing/${car._id}`">
                         <Listing :mileage="car.mileage.value"
                         :name="car.name"
                         :model="car.model"
-                        :location="car.location"
+                        :position="car.position"
                         :created="car.createdAt"
                         :price="car.price.value"
                         >

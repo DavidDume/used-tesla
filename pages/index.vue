@@ -2,14 +2,14 @@
     <MainLayout>
         <div>
             <Loading v-if="isLoading" />
-            <div v-else class="mx-48">
-                <div  class="grid grid-cols-4 gap-2">
+            <div v-else class="md:mx-48 mx-4">
+                <div  class="grid lg:grid-cols-4 gap-2">
                     <div v-for="car in listings.data" >
                         <RouterLink :to="`/listing/${car._id}`">
                             <Listing :mileage="car.mileage.value"
                             :name="car.name"
                             :model="car.model"
-                            :location="car.location"
+                            :position="car.position"
                             :created="car.createdAt"
                             :price="car.price.value"
                             >
