@@ -22,10 +22,10 @@
        </div>
        <div class="md:hidden text-2xl hover:cursor-pointer" @click="showMenu = !showMenu">
            <div :class="showMenu ? '' :'hidden'">
-           <i class="pi pi-times" ></i> 
+           <Icon name="iconamoon:sign-times" /> 
            </div>
            <div class="text-2xl hover:cursor-pointer" :class="showMenu ? 'hidden' :''">
-           <i class="pi pi-align-justify"></i>
+           <Icon name="iconamoon:menu-burger-horizontal-bold"/>
            </div>
                
        </div>
