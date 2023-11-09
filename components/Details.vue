@@ -1,7 +1,7 @@
 <template>
     <div class="md:mx-32 mx-2">
         <div class="md:flex">
-            <div class="md:w-8/12">
+            <div class="md:w-8/12" >
                 <div>
                     <img src="https://picsum.photos/500/300" alt="">
                     <!--HERE THE SMALL IMAGES PREVIEWS-->
@@ -13,7 +13,7 @@
             </div>
             <div class="md:w-4/12">
                 <ul>
-                    <li v-for="tag in tags" class="border p-2 mb-2 md:ml-2">
+                    <li v-if="tags" v-for="(tag, i) in tags" :key="i" class="border p-2 mb-2 md:ml-2">
                         <h3 class="uppercase text-sm">{{tag.title}}</h3>
                         <h2 class="text-lg">{{ tag.value || 'Non specificato'}}</h2>
                     </li>
@@ -24,12 +24,13 @@
 </template>
 
 <script setup lang="ts">
+
     import dayjs from 'dayjs';
     const props = defineProps({
         listing: Object
-    })
+    });
     const dt = dayjs(props.listing?.createdAt).format("DD/MM/YYYY");
-    const tags = ref( [
+    const tags = ref([
         {
             value: props.listing?.model,
             title: 'modello'
