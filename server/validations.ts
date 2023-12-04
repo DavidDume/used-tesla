@@ -1,7 +1,6 @@
 import joi from 'joi'
 
 export const CarSchema = joi.object({
-    name: joi.string().min(3).required(),
     year: joi.number().required(),
     model: joi.string().min(3).required(),
     vin: joi.string().min(17).max(17).required(),
@@ -20,7 +19,10 @@ export const CarSchema = joi.object({
         value: joi.number().required(),
         unit: joi.string().required()
     }),
-    description: joi.string().max(300)
+    description: joi.string().max(300).allow(''),
+    color: joi.string().required(),
+    trim: joi.string().required(),
+    condition: joi.string().required()
 })
 
 export const UserSchema = joi.object({

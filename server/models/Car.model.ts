@@ -4,10 +4,6 @@ import { ICar } from '~/types'
 
 const schema: mongoose.Schema = new mongoose.Schema(
     {
-        name: {
-            type: String,
-            required: true
-        },
         year: {
             type: Number,
             required: true
@@ -31,7 +27,9 @@ const schema: mongoose.Schema = new mongoose.Schema(
             value: { type: Number, required: true },
             unit: { type: String, required: true, default: 'KM' }
         },
-        autopilot: String,
+        color: String,
+        trim: String,
+        condition: String,
         position: {
             type: String,
             required: true
